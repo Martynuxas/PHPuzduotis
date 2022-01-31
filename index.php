@@ -24,7 +24,7 @@
                         <div class="input-date">
                         <form role="form" method="post" action="sortedIndex.php">
                             <div class="input-date">
-                                <input type="date" class="form-control" placeholder="Date" onchange='this.form.submit()' name="Date" value="<?php echo $date; ?>">
+                                <input type="date" placeholder="Select date" class="form-control" onchange='this.form.submit()' name="date">
                             </div> 
                          </form>  
                         </div>
