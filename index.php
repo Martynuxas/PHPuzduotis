@@ -18,7 +18,7 @@
             <div class="col-lg-12">
             <a href="export.php" type="button" class="btn btn-xs btn-info">EXPORT DATA TO CSV</a>
             <form class="form-horizontal" action="import.php" method="post" name="upload_excel" enctype="multipart/form-data">
-            <button type="submit" id="submit" name="Import" value="IMPORT" class="btn btn-xs btn-info" data-loading-text="Loading...">IMPORT DATA FROM CSV<input type="file" name="file" id="file" class="input-large"></button>
+            <button type="submit" id="submit" name="Import" value="IMPORT" class="btn btn-xs btn-info" data-loading-text="Loading...">IMPORT DATA FROM CSV<input type="file" name="file" id="file"  accept=".csv" class="input-large"></button>
                 </form>
                         <h2>Select date</h2>
                         <div class="input-date">
@@ -69,23 +69,6 @@
         </div>
     </div>
     </style>
-<script type="text/javascript">
-$(document).ready(function() {
-    $("#frmCSVImport").on("import", function () {
-
-	    $("#response").attr("class", "");
-        $("#response").html("");
-        var fileType = ".csv";
-        var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + fileType + ")$");
-        if (!regex.test($("#file").val().toLowerCase())) {
-        	    $("#response").addClass("error");
-        	    $("#response").addClass("display-block");
-            $("#response").html("Invalid File. Upload : <b>" + fileType + "</b> Files.");
-            return false;
-        }
-        return true;
-    });
-});
 </script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>

@@ -1,6 +1,7 @@
 <?php 
        include('connection.php');
        include('header.php');
+       $date = $_POST['Date'];
         ?>  
 <body>
     <div id="wrapper">
@@ -18,13 +19,13 @@
             <div class="col-lg-12">
             <a href="export.php" type="button" class="btn btn-xs btn-info">EXPORT DATA TO CSV</a>
             <form class="form-horizontal" action="import.php" method="post" name="upload_excel" enctype="multipart/form-data">
-            <button type="submit" id="submit" name="Import" value="IMPORT" class="btn btn-xs btn-info" data-loading-text="Loading...">IMPORT DATA FROM CSV<input type="file" name="file" id="file" class="input-large"></button>
+            <button type="submit" id="submit" name="Import" value="IMPORT" class="btn btn-xs btn-info" data-loading-text="Loading...">IMPORT DATA FROM CSV<input type="file" name="file" id="file" accept=".csv" class="input-large"></button>
                 </form>
                         <h2>Select date</h2>
                         <div class="input-date">
                         <form role="form" method="post" action="sortedIndex.php">
                             <div class="input-date">
-                                <input type="date" class="form-control" placeholder="Date" onchange='this.form.submit()' name="Date" value="<?php echo $_POST['Date']; ?>">
+                                <input type="date" class="form-control" placeholder="Select date" onchange='this.form.submit()' name="date" value="<?php echo $_POST['date']; ?>">
                             </div> 
                          </form>  
                         </div>
@@ -44,7 +45,7 @@
                                 </thead>
                                 <tbody>
                                  <?php      
-                $date = $_POST['Date'];          
+                $date = $_POST['date'];          
                 $query = "SELECT * FROM `people` WHERE
                 `date` LIKE '$date%'";
                     $result = mysqli_query($db, $query) or die (mysqli_error($db));
